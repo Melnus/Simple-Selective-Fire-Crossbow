@@ -1,6 +1,9 @@
 # Simple Selective-Fire Crossbow（アタレ式ボウガン）
 
 
+[![Demo](https://raw.githubusercontent.com/Melnus/Simple-Selective-Fire-Crossbow/refs/heads/main/SSFC_Thumbnail.jpg)](https://youtu.be/4Czys1de2Zs?si=VgRqBebliilCqNPU)
+
+
 ## English
 
 A vanilla-style crossbow inspired by the Japanese **"Atare" fire selector** used on Japan Self-Defense Forces rifles. It also features the three-round burst mode of the Type 89 rifle.
