@@ -1,0 +1,49 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "melnus:ssfc_bolt_single",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "spawn_category": "misc"
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "projectile",
+          "ssfc_bolt"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:physics": {},
+      "minecraft:projectile": {
+        "gravity": 0.05,
+        "power": 3.0,
+        "hit_sound": "bow.hit",
+        "on_hit": {
+          "impact_damage": {
+            "damage": 128,
+            "knockback": true,
+            "destroy_on_hit": true
+          },
+          "remove_on_hit": {}
+        },
+        "offset": [
+          0,
+          -0.1,
+          0
+        ],
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "isolated_physics": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      }
+    }
+  }
+}
