@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=アタレ式ボウガン
+melnus.atare.mode.safe=安全
+melnus.atare.mode.single=単発
+melnus.atare.mode.burst=3点射
+melnus.atare.mode.auto=連発
+melnus.atare.status=%1[%2] %3§r  弾倉 %4/%5%6
+melnus.atare.full=  §7(満タン)
+melnus.atare.reload=§bリロード §r%1
+melnus.atare.no_arrow=§7矢がない
+melnus.atare.empty=§7弾切れ (長押しでリロード)

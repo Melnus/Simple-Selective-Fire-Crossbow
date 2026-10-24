@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=ATARE Crossbow
+melnus.atare.mode.safe=保險
+melnus.atare.mode.single=單發
+melnus.atare.mode.burst=3連發
+melnus.atare.mode.auto=連發
+melnus.atare.status=%1[%2] %3§r  彈匣 %4/%5%6
+melnus.atare.full=  §7(已滿)
+melnus.atare.reload=§b裝填中 §r%1
+melnus.atare.no_arrow=§7沒有箭
+melnus.atare.empty=§7彈匣已空(長按裝填)

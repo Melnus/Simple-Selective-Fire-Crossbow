@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=ATARE Crossbow
+melnus.atare.mode.safe=Предохранитель
+melnus.atare.mode.single=Одиночный
+melnus.atare.mode.burst=Очередь по 3
+melnus.atare.mode.auto=Автоматический
+melnus.atare.status=%1[%2] %3§r  Магазин %4/%5%6
+melnus.atare.full=  §7(Полный)
+melnus.atare.reload=§bПерезарядка §r%1
+melnus.atare.no_arrow=§7Нет стрел
+melnus.atare.empty=§7Магазин пуст (удерживайте для перезарядки)

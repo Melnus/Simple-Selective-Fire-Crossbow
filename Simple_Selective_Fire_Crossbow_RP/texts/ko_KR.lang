@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=ATARE Crossbow
+melnus.atare.mode.safe=안전
+melnus.atare.mode.single=단발
+melnus.atare.mode.burst=3점사
+melnus.atare.mode.auto=연발
+melnus.atare.status=%1[%2] %3§r  탄창 %4/%5%6
+melnus.atare.full=  §7(가득 참)
+melnus.atare.reload=§b재장전 §r%1
+melnus.atare.no_arrow=§7화살이 없음
+melnus.atare.empty=§7탄창이 비었음 (길게 눌러 재장전)

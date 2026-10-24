@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=ATARE Crossbow
+melnus.atare.mode.safe=Seguro
+melnus.atare.mode.single=Tiro único
+melnus.atare.mode.burst=Rajada de 3
+melnus.atare.mode.auto=Automático
+melnus.atare.status=%1[%2] %3§r  Carregador %4/%5%6
+melnus.atare.full=  §7(Cheio)
+melnus.atare.reload=§bRecarregando §r%1
+melnus.atare.no_arrow=§7Sem flechas
+melnus.atare.empty=§7Sem munição (segure para recarregar)

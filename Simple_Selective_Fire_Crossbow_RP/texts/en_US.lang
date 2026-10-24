@@ -1,0 +1,10 @@
+item.melnus:atare_crossbow.name=ATARE Crossbow
+melnus.atare.mode.safe=Safe
+melnus.atare.mode.single=Single
+melnus.atare.mode.burst=3-round burst
+melnus.atare.mode.auto=Full-auto
+melnus.atare.status=%1[%2] %3§r  Mag %4/%5%6
+melnus.atare.full=  §7(Full)
+melnus.atare.reload=§bReloading §r%1
+melnus.atare.no_arrow=§7No arrows
+melnus.atare.empty=§7Out of ammo (hold to reload)
