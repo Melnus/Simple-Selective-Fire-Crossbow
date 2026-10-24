@@ -1,0 +1,9 @@
+{
+  "resource_pack_name": "Simple_Selective_Fire_Crossbow_RP",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "melnus_atare_crossbow": {
+      "textures": "textures/items/crossbow_standby"
+    }
+  }
+}
