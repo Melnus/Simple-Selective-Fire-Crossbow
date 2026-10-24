@@ -51,6 +51,14 @@ const MODE_SINGLE = 1;
 const MODE_BURST = 2;
 const MODE_AUTO = 3;
 
+// モードごとの専用弾 (ダメージは entities/ssfc_bolt_*.json の impact_damage.damage で決まる)
+// バニラの矢は改造しないので、スケルトンなどの矢には影響しない。
+const BOLT_IDS = {
+  [MODE_SINGLE]: "melnus:ssfc_bolt_single",
+  [MODE_BURST]: "melnus:ssfc_bolt_burst",
+  [MODE_AUTO]: "melnus:ssfc_bolt_auto",
+};
+
 const using = new Set();        // 構えるボタンを押している間のプレイヤーID
 const states = new Map();       // プレイヤーID -> { phase: "aim" | "reload", id, ready }
 const busyUntil = new Map();    // プレイヤーID -> 次に構えられるtick
@@ -202,7 +210,7 @@ function takeRound(player) {
   return true;
 }
 
-function fireOne(player, uncertainty) {
+function fireOne(player, mode, uncertainty) {
   if (!takeRound(player)) {
     actionBar(player, T(KEYS.EMPTY));
     sound(player, "random.click");
@@ -212,8 +220,12 @@ function fireOne(player, uncertainty) {
     const dir = player.getViewDirection();
     const head = player.getHeadLocation();
     const pos = { x: head.x + dir.x, y: head.y + dir.y - 0.1, z: head.z + dir.z };
-    const arrow = player.dimension.spawnEntity(ARROW_ID, pos);
+    const arrow = player.dimension.spawnEntity(BOLT_IDS[mode] ?? BOLT_IDS[MODE_SINGLE], pos);
     arrow.addTag(ARROW_TAG);
+    // 弾の向きを、撃った人の向きに合わせる (見た目が横を向かないように)
+    try {
+      arrow.setRotation(player.getRotation());
+    } catch {}
     const proj = arrow.getComponent("minecraft:projectile");
     try {
       proj.owner = player;
@@ -234,8 +246,8 @@ function fireOne(player, uncertainty) {
   return true;
 }
 
-function fireBurst(player, count, interval, uncertainty) {
-  if (!fireOne(player, uncertainty)) return;
+function fireBurst(player, mode, count, interval, uncertainty) {
+  if (!fireOne(player, mode, uncertainty)) return;
   let n = 1;
   const id = system.runInterval(() => {
     if (n >= count || !isHoldingCrossbow(player)) {
@@ -243,7 +255,7 @@ function fireBurst(player, count, interval, uncertainty) {
       return;
     }
     n++;
-    if (!fireOne(player, uncertainty)) system.clearRun(id);
+    if (!fireOne(player, mode, uncertainty)) system.clearRun(id);
   }, interval);
 }
 
@@ -307,7 +319,7 @@ function startAim(player, mode) {
     }
     // 連発は、構え完了後は押している間ずっと撃つ
     if (mode === MODE_AUTO && st.ready && (t - AIM_TICKS) % AUTO_INTERVAL === 0) {
-      if (!fireOne(player, 1.0)) stopState(player);
+      if (!fireOne(player, MODE_AUTO, 1.0)) stopState(player);
     }
   }, 1);
   states.set(player.id, { phase: "aim", id, ready: false });
@@ -358,10 +370,10 @@ world.afterEvents.itemStopUse.subscribe((ev) => {
   if (st && st.phase === "aim" && st.ready && isHoldingCrossbow(player)) {
     if (mode === MODE_SINGLE) {
       busyUntil.set(player.id, now + SINGLE_COOLDOWN);
-      fireOne(player, 0.3);
+      fireOne(player, MODE_SINGLE, 0.3);
     } else if (mode === MODE_BURST) {
       busyUntil.set(player.id, now + BURST_COUNT * BURST_INTERVAL + BURST_COOLDOWN);
-      fireBurst(player, BURST_COUNT, BURST_INTERVAL, 0.6);
+      fireBurst(player, MODE_BURST, BURST_COUNT, BURST_INTERVAL, 0.6);
     }
   }
   stopState(player);
