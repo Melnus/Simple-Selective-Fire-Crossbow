@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Simple Selective-Fire Crossbow[RP/002]",
+    "name": "Simple Selective-Fire Crossbow[RP/006]",
     "description": "Modded the crossbow to use the Japanese 'Atare' fire-selector, making it much more versatile.",
     "uuid": "c1ab8b73-6900-4188-894e-bcc746adfc70",
     "version": [
       0,
       0,
-      2
+      6
     ],
     "min_engine_version": [
       1,
@@ -23,7 +23,7 @@
       "version": [
         0,
         0,
-        2
+        6
       ]
     }
   ],
@@ -33,7 +33,7 @@
       "version": [
         0,
         0,
-        2
+        6
       ]
     }
   ]
